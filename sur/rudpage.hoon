@@ -1,7 +1,7 @@
 |%
 +$  action
-  $?  %add
-      %sub
+  $?  [%add ~]
+      [%sub ~]
   ==
 
 +$  rudpage  rudpage-0

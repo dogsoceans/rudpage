@@ -36,7 +36,6 @@
   |=  old-state=vase
   ^-  (quip card _this)
   =/  old  !<(versioned-state old-state)
-  ?~  old  !! 
     `this(state old)
     
 ::
@@ -60,10 +59,11 @@
         ==
         (fours:rudder state)
         |=  act=action:sur
+          ~&  act
           ^-  $@(@t [brief:rudder (list card) rudpage:sur])
-            ?-  act
-            %add  ``+(val)
-            %sub  ``(dec val)
+            ?-  -.act
+            %add  ``+(val.state)
+            %sub  ``(dec val.state)
           ==
       ==
 ++  on-watch

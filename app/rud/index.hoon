@@ -36,9 +36,9 @@
   =/  args=(map @t @t)
     ?~(body ~ (frisk:rudder q.u.body))
   ?:  (~(has by args) 'add')
-    [%add]
+    [%add ~]
   ?:  (~(has by args) 'sub')
-    [%sub]
+    [%sub ~]
   ~
 ::
 ++  final
