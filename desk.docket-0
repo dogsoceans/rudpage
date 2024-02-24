@@ -1,10 +1,10 @@
 :~
-  title+'enemies'
-  info+'an anonymous message board'
+  title+'rudpage'
+  info+'a simple page'
   color+0x1d.1f21
   version+[0 1 0]
   website+'none'
   license+''
   image+''
-  site+/enemies
+  site+/rudpage
 ==

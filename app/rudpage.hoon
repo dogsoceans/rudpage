@@ -1,19 +1,26 @@
-/+  default-agent, debug
+/-  sur=rudpage
+/+  default-agent, dbug, rudder, verb, server
+/~  pages  (page:rudder rudpage:sur action:sur)  /app/rud
+!:
 |%
 +$  versioned-state
   $%  state-0
   ==
-+$  state-0  [%0  val=@ud]
++$  state-0  rudpage:sur
 +$  card  card:agent:gall
 --
-%-  agent:debug
+%+  verb  |
+%-  agent:dbug
 =|  state-0
-=*  state -
+=*  state  -
 ^-  agent:gall
 |_  =bowl:gall
 +*  this  .
-    def   ~(.  (default-agent  this  %.n) bowl)
-
+    def   ~(. (default-agent this %.n) bowl)
+++  on-leave  on-leave:def
+++  on-peek  on-peek:def
+++  on-agent  on-agent:def
+++  on-fail  on-fail:def
 ++  on-init
   ^-  (quip card _this)
   :_  this
@@ -26,39 +33,39 @@
   !>(state)
 ::
 ++  on-load
-  old-state=vase
+  |=  old-state=vase
   ^-  (quip card _this)
   =/  old  !<(versioned-state old-state)
-  ?-  -.old
-    %0  `this(state old)
-    ==
+  ?~  old  !! 
+    `this(state old)
+    
 ::
 ++  on-poke
   |=  [=mark =vase]
   ^-  (quip card _this)
-      ?>  =(%handle-http-request mark)
- =;  out=(quip card _state)
+  ?>  =(%handle-http-request mark)
+  =;  out=(quip card rudpage:sur)
     [-.out this(state +.out)]
-      %.   
-        :+  bowl
-        !<(order:rudder vase)
-      state
-  %:  (steer:rudder _state action)
-    pages
-    %:  point:rudder
-      /rudpage
-      &
-      ~(key by pages)
-    ==
-    (fours:rudder enemies)
-    |=  act=action
-    ^-  $@  brief:rudder
-        [brief:rudder (list card:agent:gall) _state]
-    ?-  act
-      %add  this(state +(state))
-      %sub  this(state (dec state))
-    ==
-  ==
+      %.  
+        :+
+          bowl
+          !<(order:rudder vase)
+          state
+      %:  (steer:rudder rudpage:sur action:sur)
+        pages
+        %:  point:rudder
+          /rudpage
+          &
+          ~(key by pages)
+        ==
+        (fours:rudder state)
+        |=  act=action:sur
+          ^-  $@(@t [brief:rudder (list card) rudpage:sur])
+            ?-  act
+            %add  ``+(val)
+            %sub  ``(dec val)
+          ==
+      ==
 ++  on-watch
   |=  =path
   ^-  (quip card _this)
@@ -70,8 +77,4 @@
   |=  [=wire =sign-arvo]
   ^-  (quip card _this)
   `this
-
-++  on-leave  on-leave:def
-++  on-peek  on-peek:def
-++  on-agent  on-agent:def
-++  on-fail  on-fail:def
+--
