@@ -19,13 +19,9 @@
         ;meta(name "viewport", content "width=device-width, initial-scale=1");
       ==
       ;body
-        ;+  ?~  msg  :/""
-            ?:  gud.u.msg
-              ;div#status.green:"{(trip txt.u.msg)}"
-            ;div#status.red:"{(trip txt.u.msg)}"
+      ;p: count {<val.rudpage>}
         ;form(method "post")
           ;input(type "submit", name "add", value "add");
-          ;input(type "submit", name "sub", value "sub");
         ==
       ==
     ==
